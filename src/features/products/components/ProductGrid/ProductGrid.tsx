@@ -5,9 +5,10 @@ import { ProductCard } from  '../ProductCard/ProductCard';
 
 interface ProductGridProps {
     products: Product[];
+    onAddToCart: (product: Product) => void;
 }
 
-export const ProductGrid = ({ products }: ProductGridProps) => {
+export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
     return (
         <Grid container spacing={3}>
             {products.map(product => (
@@ -22,6 +23,7 @@ export const ProductGrid = ({ products }: ProductGridProps) => {
                 >
                     <ProductCard
                         product={product}
+                        onAddToCart={onAddToCart}
                     />
                 </Grid>
             ))}
