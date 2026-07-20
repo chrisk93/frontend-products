@@ -68,6 +68,60 @@ export const cartReducer = (
 
         }
 
+        case 'REMOVE_PRODUCT': {
+
+            const existingItem = state.items.find(
+                item => item.product.id === action.payload,
+            );
+        
+            if (!existingItem) {
+                return state;
+            }
+        
+            if (existingItem.quantity === 1) {
+        
+                return {
+                    ...state,
+                    items: state.items.filter(
+                        item => item.product.id !== action.payload,
+                    ),
+                };
+        
+            }
+        
+            return {
+        
+                ...state,
+        
+                items: state.items.map(item => {
+        
+                    if (item.product.id === action.payload) {
+        
+                        return {
+                            ...item,
+                            quantity: item.quantity - 1,
+                        };
+        
+                    }
+        
+                    return item;
+        
+                }),
+        
+            };
+        
+        }
+
+        case 'CLEAR_CART': { 
+            return {
+
+                ...state,
+        
+                items: [],
+        
+            };
+        }
+
         default:
 
             return state;

@@ -2,6 +2,7 @@ import { useProducts } from '../../features/products/hooks/useProducts';
 import { ProductGrid } from '../../features/products/components/ProductGrid';
 import { Container } from '@mui/material';
 import { useCart } from '../../features/cart/hooks';
+import { Cart } from '../../features/cart/components';
 
 export const Home = () => {
   const { data, isLoading, isError } = useProducts({
@@ -20,11 +21,12 @@ export const Home = () => {
   }
 
   return (
-  <Container maxWidth="lg">
+  <Container maxWidth="lg" sx={{ mt: 4 }}>
         <ProductGrid
             products={data?.items ?? []}
             onAddToCart={addProduct}
         />
+        <Cart />
   </Container>
   );
 };
