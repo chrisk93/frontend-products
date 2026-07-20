@@ -1,9 +1,10 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useContext, useEffect, useReducer } from 'react';
 import type { ReactNode } from 'react';
 
 import type { Product } from '../../products/types/Product';
 import type { CartContextType } from './CartContextType';
 import { cartReducer, initialCartState } from '../reducer';
+import type { CartState } from '../types/CartState';
 
 interface CartProviderProps {
   children: ReactNode;
@@ -11,11 +12,37 @@ interface CartProviderProps {
 
 export const CartContext = createContext<CartContextType | null>(null);
 
+const initializeCartState = (): CartState => {
+    try {
+      const cart = localStorage.getItem('cart');
+  
+      if (!cart) {
+        return initialCartState;
+      }
+  
+      return {
+        items: JSON.parse(cart),
+      };
+    } catch (error) {
+      console.error('Error loading cart from LocalStorage', error);
+  
+      return initialCartState;
+    }
+  };
+
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [state, dispatch] = useReducer(
     cartReducer,
     initialCartState,
+    initializeCartState
   );
+
+  useEffect(() => {
+    localStorage.setItem(
+        'cart',
+        JSON.stringify(state.items)
+    );
+}, [state.items]);
 
   console.log(state.items)
 
