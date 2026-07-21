@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 import type { ReactNode } from 'react';
 
 import type { Product } from '../../products/types/Product';
@@ -48,6 +48,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   const addProduct = (product: Product) => {
     console.log('Producto agregado:', product);
+    
     dispatch({
       type: 'ADD_PRODUCT',
       payload: product,
