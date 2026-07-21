@@ -243,10 +243,6 @@ La interfaz fue desarrollada utilizando Material UI y un sistema de Grid respons
 
 Se utiliza para administrar el estado remoto debido a sus capacidades de caché, sincronización automática y manejo de estados asíncronos.
 
-## Context API
-
-Se utiliza para administrar el estado global del carrito evitando prop drilling.
-
 ## Repository Pattern
 
 Cada módulo implementa una capa Repository para abstraer el origen de los datos.
