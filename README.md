@@ -1,6 +1,6 @@
 # Product Catalog
 
-Aplicación web desarrollada con React para consumir un catálogo de productos, permitiendo consultar productos, filtrarlos por categoría, administrar un carrito de compras y ofrecer una interfaz responsiva.
+Aplicación web desarrollada con React para consumir un catálogo de productos, permitiendo consultar productos, filtrarlos, administrar un carrito de compras y ofrecer una interfaz responsiva.
 
 El proyecto fue desarrollado siguiendo principios de separación de responsabilidades, desacoplamiento y escalabilidad, utilizando una arquitectura modular basada en funcionalidades (Feature-Based Architecture).
 
@@ -22,8 +22,6 @@ El proyecto fue desarrollado siguiendo principios de separación de responsabili
 # Funcionalidades
 
 - Consulta del catálogo de productos desde el backend.
-- Filtrado por categoría.
-- Paginación utilizando la API del backend.
 - Carrito de compras administrado localmente.
 - Persistencia del carrito mediante localStorage.
 - Actualización inmediata de la interfaz al agregar o eliminar productos.
@@ -118,7 +116,7 @@ CartContext
 
 ↓
 
-CartRepository
+useReducer
 
 ↓
 
@@ -135,9 +133,7 @@ Contiene la comunicación con el backend mediante Axios.
 
 Responsabilidades:
 
-- Obtener productos.
-- Consultar productos filtrados por categoría.
-- Consumir la paginación.
+- Consultar productos.
 
 ---
 
@@ -161,7 +157,6 @@ Incluye:
 Responsabilidades:
 
 - Obtener productos.
-- Consultar productos filtrados.
 - Adaptar respuestas del backend.
 - Centralizar el acceso a la API.
 
