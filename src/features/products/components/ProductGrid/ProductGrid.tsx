@@ -6,9 +6,10 @@ import { ProductCard } from  '../ProductCard/ProductCard';
 interface ProductGridProps {
     products: Product[];
     onAddToCart: (product: Product) => void;
+    removeProduct: (product: number) => void;
 }
 
-export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
+export const ProductGrid = ({ products, onAddToCart, removeProduct }: ProductGridProps) => {
     return (
         <Grid container spacing={3}>
             {products.map(product => (
@@ -24,6 +25,7 @@ export const ProductGrid = ({ products, onAddToCart }: ProductGridProps) => {
                     <ProductCard
                         product={product}
                         onAddToCart={onAddToCart}
+                        removeProduct={removeProduct}
                     />
                 </Grid>
             ))}

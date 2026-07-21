@@ -29,7 +29,7 @@ export const Home = () => {
     );
   }, [data, search]);
 
-  const { addProduct } = useCart();
+  const { addProduct, removeProduct } = useCart();
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -48,6 +48,7 @@ export const Home = () => {
       <ProductGrid
         products={filteredProducts}
         onAddToCart={addProduct}
+        removeProduct={removeProduct}
       />
       <Cart />
     </Container>

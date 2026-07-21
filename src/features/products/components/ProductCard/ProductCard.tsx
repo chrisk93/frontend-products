@@ -12,9 +12,10 @@ import type { Product } from '../../types/Product';
 interface ProductCardProps {
     product: Product;
     onAddToCart?: (product: Product) => void;
+    removeProduct?: (product: number) => void;
 }
 
-export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
+export const ProductCard = ({ product, onAddToCart, removeProduct }: ProductCardProps) => {
     return (
         <Card
             sx={{
@@ -61,11 +62,19 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
             </CardContent>
             <CardActions>
                 <Button
-                    fullWidth
+                    
+                    variant="contained"
+                    onClick={() => removeProduct?.(product.id)}
+                >
+                    Remover
+                </Button>
+
+                <Button
+                    
                     variant="contained"
                     onClick={() => onAddToCart?.(product)}
                 >
-                    Agregar al carrito
+                    Agregar
                 </Button>
             </CardActions>
         </Card>
