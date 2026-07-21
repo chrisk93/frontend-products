@@ -6,6 +6,14 @@ El proyecto fue desarrollado siguiendo principios de separación de responsabili
 
 ---
 
+# Screenshots
+
+<img width="1740" height="1058" alt="Captura de pantalla 2026-07-20 a la(s) 7 13 31 p  m" src="https://github.com/user-attachments/assets/9596f50e-96cb-4724-b1fe-5a7475e08a11" />
+
+
+
+---
+
 # Tecnologías
 
 - React
