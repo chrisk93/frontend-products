@@ -5,6 +5,12 @@ interface ProductFilterProps {
   onSearchChange: (value: string) => void;
 }
 
+//holaaa
+fun hola() {
+  var mi funcion = ''
+  
+}
+
 export const ProductFilter = ({
   value,
   onSearchChange,
