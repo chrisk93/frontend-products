@@ -18,8 +18,12 @@ jobs:
           fetch-depth: 0 # Descarga el historial completo para comparar los cambios
 
       - name: Ejecutar Agente de Revisión con Gemini
-        uses: rubensflinco/code-review-by-gemini-ai@v1.0.5 # Acción optimizada para la API de Gemini
+        uses: rubensflinco/gemini-code-review-action@1.0.5 # Nombre del repositorio corregido
         with:
-          gemini_api_key: ${{ secrets.GEMINI_API_KEY }} # Tu clave gratuita guardada en los Secrets
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Token automático de GitHub para comentar
-          model: "gemini-1.5-flash" # Modelo rápido, inteligente y gratuito
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repository: ${{ github.repository }}
+          github_pull_request_number: ${{ github.event.pull_request.number }}
+          git_commit_hash: ${{ github.event.pull_request.head.sha }}
+          model: "gemini-1.5-flash" # Modelo rápido e inteligente del tier gratuito
+
